@@ -1,0 +1,1 @@
+<script src="Templates/js/bootstrap.bundle.min.js" charset="UTF-8"></script>
