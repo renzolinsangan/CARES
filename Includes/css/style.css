@@ -2,6 +2,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    overflow-anchor: none;
 }
 
 .container {
@@ -9,6 +10,12 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 100%;
+    min-height: 100vh;
+    overflow-anchor: none;
+}
+
+body.swal2-shown {
+    overflow-y: auto !important;
 }
 
 .container .row {
@@ -41,12 +48,10 @@ body, html {
     color: #1A3D63;
 }
 
-/* Fix placeholder color */
 .form-control::placeholder {
     color: #A0AFC2 !important;
 }
 
-/* Remove hover/focus styles from inputs */
 .form-control {
     border: 1px solid #B3CFE5;
     background-color: #ffffff;
@@ -55,14 +60,12 @@ body, html {
     transition: none;
 }
 
-/* Remove hover effect */
 .form-control:hover {
     border: 1px solid #B3CFE5;
     background-color: #ffffff;
     box-shadow: none;
 }
 
-/* Remove focus highlight/outline */
 .form-control:focus {
     border: 1px solid #B3CFE5;
     outline: none;
