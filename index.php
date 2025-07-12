@@ -50,6 +50,6 @@ include('Modules/phpInclude.php');
 
     <!-- JAVASCRIPT -->
     <?php include_once("Modules/footer.php"); ?>
-    <script type="text/javascript" src="Includes/js/index.js"></script>
+    <script type="text/javascript" src="Includes/js/index-js.js"></script>
 </body>
 </html>

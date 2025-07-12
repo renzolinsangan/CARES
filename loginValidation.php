@@ -27,6 +27,7 @@ if(empty($userNameInput)) {
             $_SESSION['userPassword'] = $resultCareAdmin->userPassword;
             $_SESSION['firstName'] = $resultCareAdmin->firstName;
             $_SESSION['surName'] = $resultCareAdmin->surName;
+            $_SESSION['active'] = "dashboard";
 
             echo "loginsuccess";
             exit();

@@ -36,7 +36,7 @@ $(document).ready(function() {
                 console.log(data);
                 switch (data) {
                     case 'loginsuccess' :
-                        window.location.href = "dashboard.php";
+                        window.location.href = "dashboard.php?active=dashboard";
                         break;
                     case 'usernameempty':
                         showSweetAlert("Username Required!", "Please enter your username.", "warning", false, 1500, false);
