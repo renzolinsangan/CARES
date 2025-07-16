@@ -1,0 +1,63 @@
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(10, 25, 49, 0.15) !important;
+}
+
+.cares-circle-icon {
+    width: 50px;
+    height: auto;
+    background-image: url("../Images/cares-icon.jpg"); /* Blue background */
+    background-size: cover;
+    background-position: center;
+    color: #F6FAFD;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar-toggler {
+    border: none !important;
+    color: #1A3D63 !important;
+    margin-left: -10px !important;
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-brand {
+    color: #1A3D63 !important;
+    font-weight: bolder;
+}
+
+.icon-label, .bell-icon, .person-fill-icon { 
+    color: #1A3D63 !important;
+    font-weight: bolder;
+}
+
+.power-logout-text {
+    color: #1A3D63;
+    font-weight: 500 !important;
+}
+
+.header-icon-container i {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.icon-label {
+    font-size: 0.70rem;
+    margin-top: 2px;
+    color: #555;
+}
+
+.notification-icon-container, .logout-icon-container {
+    cursor: pointer;
+}

@@ -1,0 +1,19 @@
+.sidebar {
+    box-shadow: 0 4px 12px rgba(10, 25, 49, 0.15) !important;
+    height: 100vh !important;
+}
+
+.nav-link {
+    color: #1A3D63;
+    border-radius: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: #1A3D63;
+    color: white;
+}
+
+.nav-link.active {
+    background-color: #1A3D63 !important;
+    color: white !important;
+}
