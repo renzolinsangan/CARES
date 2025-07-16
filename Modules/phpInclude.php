@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('Includes/php/dbConnection.php');
+$serverPath = $_SERVER['DOCUMENT_ROOT'] . "/" . "CARES/";
 
 $sessionActive = !empty($_SESSION['active']) ? $_SESSION['active'] : '';
 $getActive  = (!empty($GET['active'])) ? $_GET['active'] : $sessionActive;

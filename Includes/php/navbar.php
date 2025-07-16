@@ -1,68 +1,5 @@
-<style>
-    .navbar {
-        background-color: #ffffff;
-        box-shadow: 0px 5px 21px -5px #CDD1E1;
-    }
-
-    .cares-circle-icon {
-        width: 50px;
-        height: auto;
-        background-image: url("Includes/php/cares-icon.jpg"); /* Blue background */
-        background-size: cover;
-        background-position: center;
-        color: #F6FAFD;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .navbar-toggler {
-        border: none !important;
-        color: #1A3D63 !important;
-    }
-
-    .navbar-toggler:focus {
-        outline: none !important;
-        box-shadow: none !important;
-    }
-
-    .navbar-brand {
-        color: #1A3D63 !important;
-        font-weight: bolder;
-    }
-
-    .icon-label, .bell-icon, .person-fill-icon { 
-        color: #1A3D63 !important;
-        font-weight: bolder;
-    }
-
-    .power-logout-text {
-        color: #1A3D63;
-        font-weight: 500 !important;
-    }
-
-    .header-icon-container i {
-    display: block;
-    font-size: 1.2rem;
-    color: #333;
-    }
-
-    .icon-label {
-    font-size: 0.70rem;
-    margin-top: 2px;
-    color: #555;
-    }
-
-    .notification-icon-container, .logout-icon-container {
-        cursor: pointer;
-    }
-</style>
-
+<link rel="stylesheet" href="Includes/css/navbar-style.css">
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid ms-3 me-3 ms-md-5 me-md-5 p-3 p-md-1">
         <div class="header-text-container d-flex">
@@ -74,7 +11,6 @@
                 <div class="notification-icon">
                     <i class="bell-icon bi bi-bell fs-4"></i>
                 </div>
-                <!-- <div class="icon-label">Notification</div> -->
             </div>
             <div class="logout-icon-container dropdown text-center">
                 <div class="logout-icon" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -88,9 +24,33 @@
                     </li>
                 </ul>
             </div>
+            <div class="sidebar-container text-center">
+                <!-- Mobile Sidebar Toggle Button -->
+                <i class="navbar-toggler bi bi-list fs-1" data-bs-toggle="collapse" data-bs-target="#adminNavbarIcons" aria-controls="adminNavbarIcons" aria-expanded="false" aria-label="Toggle navigation"></i>
+            </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbarIcons" aria-controls="adminNavbarIcons" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-list fs-1"></i>
-        </button>
     </div>
 </nav>
+
+<!-- COLLAPSIBLE SIDEBAR (Mobile Only) -->
+<div class="collapse bg-white border-end d-lg-none" id="adminNavbarIcons">
+    <div class="p-3">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item mb-3">
+                <a href="dashboard.php?active=dashboard" class="nav-link <?php echo $dashboardClass; ?>">
+                <i class="bi bi-house-door-fill me-2"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a href="#" class="nav-link <?php echo $shopValidationClass; ?>">
+                <i class="bi bi-folder-fill me-2"></i> Shop Validation
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a href="#" class="nav-link <?php echo $issueReportsClass; ?>">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> Issue Reports
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
