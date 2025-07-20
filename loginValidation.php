@@ -14,7 +14,7 @@ if(empty($userNameInput)) {
 } else {
     $adminDataArray = [];
 
-    $sql = "SELECT adminId, userName, userPassword, firstName, surName FROM care_admin WHERE userName LIKE '$userNameInput'";
+    $sql = "SELECT adminId, userName, userPassword, firstName, surName FROM cares_admin WHERE userName LIKE '$userNameInput'";
     $queryCareAdmin = $db->query($sql);
 
     if($queryCareAdmin && $queryCareAdmin->num_rows > 0) {

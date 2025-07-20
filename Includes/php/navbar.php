@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="Includes/css/navbar-style.css">
+<link rel="stylesheet" href="<?php echo $serverPath; ?>Includes/css/navbar-style.css">
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid ms-3 me-3 ms-md-5 me-md-5 p-3 p-md-1">
@@ -39,6 +39,11 @@
             <li class="nav-item mb-3">
                 <a href="dashboard.php?active=dashboard" class="nav-link <?php echo $dashboardClass; ?>">
                 <i class="bi bi-house-door-fill me-2"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a href="#" class="nav-link <?php echo $userManagementClass; ?>">
+                <i class="bi bi-person-fill-gear"></i>&nbsp;User Management
                 </a>
             </li>
             <li class="nav-item mb-3">

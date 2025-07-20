@@ -22,7 +22,7 @@ include('Includes/php/dashboard/dashboardModules.php');
             <div class="dashboard-text-container row mb-4">
                 <div class="col-12">
                     <div class="dashboard-text-container-card card ps-4 pt-3 pb-3">
-                        <h1>Dashboard</h1>
+                        <h1 class="dashboard-text-title">Dashboard</h1>
                         <p class="text-body-secondary">Welcome, <?php echo $fullName; ?>!</p>
                     </div>
                 </div>

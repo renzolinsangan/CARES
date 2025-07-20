@@ -1,0 +1,45 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-anchor: none;
+}
+
+body {
+    background-color: #F5F7FF !important;
+    display: flex;
+    flex-direction: column;
+}
+
+body.swal2-shown {
+    padding-right: 0 !important;
+}
+
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.card {
+    border: none !important;
+}
+
+.shopvalidation-text-container .col-12 .shopvalidation-text-container-card, .shopvalidation-table-container .col-12 .shopvalidation-table-card {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(10, 25, 49, 0.15) !important;
+}
+
+.shopvalidation-text-container .col-12 .shopvalidation-text-container-card .shopvalidation-text-title {
+    color: #1A3D63 !important;
+}
+
+.shopvalidation-table thead tr th {
+    background-color: #1A3D63;
+    color: white;
+    text-align: center !important;
+}
+
+.shopvalidation-table tbody tr td {
+    text-align: center !important;
+}
