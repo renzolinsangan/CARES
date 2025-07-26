@@ -17,7 +17,7 @@ $(document).ready(function() {
             allowOutsideClick : false,
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "logoutValidation.php";
+                window.location.href = "<?php echo $serverPath;?>logoutValidation.php";
             }
         });
     });

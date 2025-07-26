@@ -4,5 +4,6 @@ $(document).ready(function() {
         lengthChange: false,
         info : false,
         ordering : false,
+        scrollX: true,
     });
 });

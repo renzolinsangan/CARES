@@ -10,7 +10,7 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARES</title>
-    <link rel="stylesheet" href="../../Includes/css/shopvalidation-style.css">
+    <link rel="stylesheet" href="../../Includes/css/shopvalidation/shopvalidation-style.css">
     <?php include_once("Modules/header.php"); ?>
 </head>
 <body>
@@ -37,29 +37,25 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
                             <table class="shopvalidation-table table table-bordered table-responsive" id="dataTable">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Shop Name</th>
                                         <th>Owner Name</th>
                                         <th>Location</th>
+                                        <th>Shop Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            JTM Auto Repair
-                                        </td>
-                                        <td>
-                                            John Renzo Linsangan
-                                        </td>
-                                        <td>
-                                            P.Herrera Ave, Batangas
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary">View Documents</button>
-                                            <button class="btn btn-primary">Approve</button>
-                                            <button class="btn btn-primary">Request</button>
-                                        </td>
-                                    </tr>
+                                    <?php foreach($shopValidationDetailsArray as $data) : ?>
+                                        <tr>
+                                            <td><?php echo $data['counter']; ?></td>
+                                            <td><?php echo $data['shopName']; ?></td>
+                                            <td><?php echo $data['shopOwner']; ?></td>
+                                            <td><?php echo $data['location']; ?></td>
+                                            <td class="<?php echo $data['textClass']; ?> fw-bold"><?php echo $data['shopStatus']; ?></td>
+                                            <td><button class="btn btn-outline-info" title="View Documents" onclick="showDocuments('<?php echo $data['shopName']; ?>')"><i class="bi bi-files-alt"></i></button></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -71,6 +67,6 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
     
     <!-- JAVASCRIPT -->
     <?php include_once("Modules/footer.php"); ?>
-    <script type="text/javascript" src="../../Includes/js/shopvalidation-js.js"></script>
+    <script type="text/javascript" src="../../Includes/js/shopvalidation/shopvalidation-js.js"></script>
 </body>
 </html>

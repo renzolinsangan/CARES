@@ -34,12 +34,22 @@ body.swal2-shown {
     color: #1A3D63 !important;
 }
 
+.usermanagement-table {
+    min-width: max-content !important;
+    width: 100% !important;
+}
+
 .usermanagement-table thead tr th {
     background-color: #1A3D63;
     color: white;
     text-align: center !important;
+    white-space: nowrap !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
 }
 
 .usermanagement-table tbody tr td {
     text-align: center !important;
+    white-space: nowrap !important;
 }

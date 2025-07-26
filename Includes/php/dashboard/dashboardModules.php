@@ -1,22 +1,26 @@
 <?php
+include('Includes/php/usermanagement/usermanagementModules.php'); // FOR TOTAL REGISTERED USERS
+include("Includes/php/shopvalidation/shopvalidationModules.php"); // FOR TOTAL SHOP VALIDATION
+
 $fullName = $_SESSION['firstName'] . " " . $_SESSION['surName'];
+
 // array data contents for users column
 $dashboardCards = [
     [
         'title' => 'Total Registered Users',
-        'value' => '1000',
+        'value' => $totalUserRecords ?? 0,
         'img' => 'Includes/Images/team.png',
         'class' => 'total-registered-users-card'
     ],
     [
         'title' => 'Total Verified Shops',
-        'value' => '1000',
+        'value' => $shopCountArray[1]["totalVerifiedShop"],
         'img' => 'Includes/Images/repair-shop.png',
         'class' => 'total-verified-shops-card'
     ],
     [
         'title' => 'Pending Validation',
-        'value' => '1000',
+        'value' => $shopCountArray[0]["totalPendingShop"],
         'img' => 'Includes/Images/verification.png',
         'class' => 'pending-validation-card'
     ],

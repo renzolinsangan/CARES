@@ -10,7 +10,7 @@ include("Includes/php/usermanagement/usermanagementModules.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARES</title>
-    <link rel="stylesheet" href="../../Includes/css/usermanagement-style.css">
+    <link rel="stylesheet" href="../../Includes/css/usermanagement/usermanagement-style.css">
     <?php include_once("Modules/header.php"); ?>
 </head>
 <body>
@@ -32,42 +32,37 @@ include("Includes/php/usermanagement/usermanagementModules.php");
             <div class="usermanagement-table-container row mb-4">
                 <div class="col-12">
                     <div class="usermanagement-table-card card p-4">
-                        <p class="fs-4 mb-0">Total Records: 2</p>
-                        <div class="table-responsive">
+                        <p class="fs-4 mb-0">Total Records: <?php echo $totalUserRecords; ?></p>
+                        <!-- <div class="table-responsive"> -->
                             <table class="usermanagement-table table table-bordered table-responsive" id="dataTable">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Gender</th>
                                         <th>Email</th>
-                                        <th>Registered Vehicle</th>
+                                        <th>Phone Number</th>
+                                        <th>Vehicle Model - Plate Number</th>
                                         <th>Role</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>John Renzo</td>
-                                        <td>Linsangan</td>
-                                        <td>Male</td>
-                                        <td>renzolinsangan11@gmail.com</td>
-                                        <td>Mitsubishi</td>
-                                        <td>Repair Shop Owner</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kurt Bryant</td>
-                                        <td>Arpilleda</td>
-                                        <td>Male</td>
-                                        <td>KBArpilleda@gmail.com</td>
-                                        <td>Toyota</td>
-                                        <td>Vehicle Owner</td>
-                                        <td></td>
-                                    </tr>
+                                    <?php foreach($caresAccountDetailsArray as $data) : ?>
+                                        <tr>
+                                            <td><?php echo $data['counter']; ?></td>
+                                            <td><?php echo $data['firstName']; ?></td>
+                                            <td><?php echo $data['surName']; ?></td>
+                                            <td><?php echo $data['gender']; ?></td>
+                                            <td><?php echo $data['email']; ?></td>
+                                            <td><?php echo $data['phoneNumber']; ?></td>
+                                            <td><?php echo $data['vehicleInfo']; ?></td>
+                                            <td><?php echo $data['roleStatus']; ?></td>
+                                        </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -76,6 +71,6 @@ include("Includes/php/usermanagement/usermanagementModules.php");
     
     <!-- JAVASCRIPT -->
     <?php include_once("Modules/footer.php"); ?>
-    <script type="text/javascript" src="../../Includes/js/usermanagement-js.js"></script>
+    <script type="text/javascript" src="../../Includes/js/usermanagement/usermanagement-js.js"></script>
 </body>
 </html>
