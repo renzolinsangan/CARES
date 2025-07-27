@@ -5,8 +5,9 @@ $counter = 0;
 $totalPendingShops = 0;
 $totalVerifiedShops = 0;
 
-$sql = "SELECT cs.shop_name, CONCAT(ca.firstName, ' ', ca.surName) AS shopOwner, cs.location, cs.business_docu, cs.valid_id, cs.isValidated FROM cares_shop cs INNER JOIN cares_account ca ON cs.accountId = ca.id";
+$sql = "SELECT cs.id, cs.shop_name, CONCAT(ca.firstName, ' ', ca.surName) AS shopOwner, cs.location, cs.business_docu, cs.valid_id, cs.isValidated FROM cares_shop cs INNER JOIN cares_account ca ON cs.accountId = ca.id";
 $queryShopDetails = $db->query($sql);
+$totalShopDetailsRecords = $queryShopDetails->num_rows;
 
 if($queryShopDetails && $queryShopDetails->num_rows > 0)
 {
@@ -35,6 +36,7 @@ if($queryShopDetails && $queryShopDetails->num_rows > 0)
 
         $shopValidationDetailsArray[] = [
             'counter' => $counter+=1,
+            'shopId' => $resultShopDetails->id,
             'shopName' => $resultShopDetails->shop_name,
             'shopOwner' => $resultShopDetails->shopOwner,
             'location' => $resultShopDetails->location,

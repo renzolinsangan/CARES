@@ -32,7 +32,7 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
             <div class="shopvalidation-table-container row mb-4">
                 <div class="col-12">
                     <div class="shopvalidation-table-card card p-4">
-                        <p class="fs-4 mb-0">Total Records: 2</p>
+                        <p class="fs-4 mb-0">Total Records:&nbsp;<span class="fw-bold"><?php echo $totalShopDetailsRecords; ?></span></p>
                         <div class="table-responsive">
                             <table class="shopvalidation-table table table-bordered table-responsive" id="dataTable">
                                 <thead>
@@ -47,13 +47,15 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
                                 </thead>
                                 <tbody>
                                     <?php foreach($shopValidationDetailsArray as $data) : ?>
+                                        <?php $businessDocu = $serverPath . "API/CaresAPI/businessDocu/" . $data['businessDocu']; ?>
+                                        <?php $validId = $serverPath . "API/CaresAPI/validID/" . $data['validId']; ?>
                                         <tr>
                                             <td><?php echo $data['counter']; ?></td>
                                             <td><?php echo $data['shopName']; ?></td>
                                             <td><?php echo $data['shopOwner']; ?></td>
                                             <td><?php echo $data['location']; ?></td>
                                             <td class="<?php echo $data['textClass']; ?> fw-bold"><?php echo $data['shopStatus']; ?></td>
-                                            <td><button class="btn btn-outline-info" title="View Documents" onclick="showDocuments('<?php echo $data['shopName']; ?>')"><i class="bi bi-files-alt"></i></button></td>
+                                            <td><button class="btn btn-outline-info" title="View Documents" onclick="showDocuments('<?php echo $data['shopId']; ?>', '<?php echo $data['shopName']; ?>', '<?php echo $businessDocu; ?>', '<?php echo $validId; ?>', '<?php echo $data['shopStatus']; ?>',)"><i class="bi bi-files-alt"></i></button></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

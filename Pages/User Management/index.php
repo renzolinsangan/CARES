@@ -32,7 +32,7 @@ include("Includes/php/usermanagement/usermanagementModules.php");
             <div class="usermanagement-table-container row mb-4">
                 <div class="col-12">
                     <div class="usermanagement-table-card card p-4">
-                        <p class="fs-4 mb-0">Total Records: <?php echo $totalUserRecords; ?></p>
+                        <p class="fs-4 mb-0">Total Records:&nbsp;<span class="fw-bold"><?php echo $totalUserRecords; ?></span></p>
                         <!-- <div class="table-responsive"> -->
                             <table class="usermanagement-table table table-bordered table-responsive" id="dataTable">
                                 <thead>
