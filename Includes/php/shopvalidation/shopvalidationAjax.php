@@ -15,7 +15,7 @@ $dateTime = date('Y-m-d H:i:s');
 $sql = "INSERT INTO cares_notification (notifType, accountId, shopId, notifMessage, stamp) VALUES (0, '$accountId', '$shopId', $notifMessage, '$dateTime')";
 $queryCaresNotification = $db->query($sql);
 
-$sql = "UPDATE cares_shop SET isValidated = $shopStatus, validationRemarks = '$remarks' WHERE shopId = $shopId";
+$sql = "UPDATE cares_shop SET isValidated = $shopStatus, validationRemarks = '$remarks', dateTimeValidated = '$dateTime' WHERE shopId = $shopId";
 $queryShopValidation = $db->query($sql);
 
 if($queryShopValidation) {

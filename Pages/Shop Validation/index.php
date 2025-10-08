@@ -41,6 +41,7 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
                                         <th>Shop Name</th>
                                         <th>Owner Name</th>
                                         <th>Location</th>
+                                        <th>Date Validated</th>
                                         <th>Shop Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -54,6 +55,7 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
                                             <td><?php echo $data['shopName']; ?></td>
                                             <td><?php echo $data['shopOwner']; ?></td>
                                             <td><?php echo $data['location']; ?></td>
+                                            <td><?php echo $data['dateTimeValidated']; ?></td>
                                             <td class="<?php echo $data['textClass']; ?> fw-bold"><?php echo $data['shopStatus']; ?></td>
                                             <td><button class="btn btn-outline-info" title="View Documents" onclick="showDocuments('<?php echo $data['shopId']; ?>', '<?php echo $data['shopName']; ?>', '<?php echo $businessDocu; ?>', '<?php echo $validId; ?>', '<?php echo $data['shopStatus']; ?>', '<?php echo $data['accountId']; ?>')"><i class="bi bi-files-alt"></i></button></td>
                                         </tr>
