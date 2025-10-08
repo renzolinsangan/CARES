@@ -13,6 +13,7 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
     let imageHeight;
     let swalWidth;
     var showConfirmButtonStatus = true;
+    var showConfirmButtonText = "";
     var margin = "";
     var reasonDetails = "";
     var disabledValue = "";
@@ -23,15 +24,22 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
     var sanctionDateValue = "";
     var sanctionDateDisplay = "";
     var display = "";
+    var banStatus = "";
     // const showDenyButtonStatus = true;
 
     swalTitle = status == 1 ? "Shop" : "User";
 
+    console.log(reportAction);
+    console.log(suspendedUntil);
+
     if(reportAction !== 0 && suspendedUntil !== "N/A") {
-        showConfirmButtonStatus = false;
+        showConfirmButtonStatus = true;
+        
+        showConfirmButtonText = status == 1 ? "Unban " + swalTitle : "Unsuspend " + swalTitle;
         margin = "mb-3";
         reasonDetails = reason;
         disabledValue = "disabled";
+        banStatus = status == 1 ? "unban" : "unsuspend";
 
         swalTitle = status == 1 ? "Shop Details" : "Details"; 
         
@@ -47,7 +55,8 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
             margin = "";
         }
     } else {
-        console.log('mali');
+        showConfirmButtonText = status == 1 ? "Ban " + swalTitle : "Suspend " + swalTitle;  
+        banStatus = status == 1 ? "ban" : "suspend";
     }
 
     if (screenWidth >= 1600) {
@@ -129,7 +138,7 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
         showDenyButton: false,
         showConfirmButton: showConfirmButtonStatus,
         denyButtonText: "Reject",
-        confirmButtonText: "Ban " + swalTitle,
+        confirmButtonText: showConfirmButtonText,
         denyButtonColor: "#dc3545",
         confirmButtonColor: "#dc3545",
 
@@ -187,6 +196,7 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
                     idReport : idReport,
                     reportedBy : reportedBy,
                     reportedId : reportedId,
+                    banStatus : banStatus,
                     status : status,
                 },
                 success : function(data) {
@@ -211,7 +221,18 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
                             scrollbarPadding: false,
                         });
                     }
-                }
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", status, error);
+                    console.log(xhr.responseText);
+                    Swal.fire({
+                        title: "Server Error!",
+                        text: "Something went wrong with the request. Please check console for details.",
+                        icon: "error",
+                        showConfirmButton: true,
+                        scrollbarPadding: false,
+                });
+            }
             })
         }
         // else if (result.isDenied) {

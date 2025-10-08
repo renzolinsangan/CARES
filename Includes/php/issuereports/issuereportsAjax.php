@@ -1,5 +1,5 @@
 <?php
-$rootPath = $_SERVER['DOCUMENT_ROOT'] . "/";
+$rootPath = $_SERVER['DOCUMENT_ROOT'] . "/CARES/";
 set_include_path($rootPath);
 include("Modules/phpInclude.php");
 
@@ -13,6 +13,7 @@ $suspensionTime = $_POST['suspensionTime'] ?? '';
 $idReport = (int)($_POST['idReport'] ?? 0);
 $reportedBy = $_POST['reportedBy'] ?? '';
 $reportedId = (int)($_POST['reportedId'] ?? 0);
+$banStatus = $_POST['banStatus'] ?? '';
 $status = (int)($_POST['status'] ?? 0);
 
 // Format suspension time properly if needed
@@ -28,6 +29,14 @@ $tableIdNameSanction = ($status == 1) ? 'shopId' : 'id';
 $sanctionSuspensionData = ($sanctionLevel == 1) ? ", suspendedUntil = '$suspensionTime'" : ", suspendedUntil = '0000-00-00 00:00:00'";
 $alertSanctionTitle = ($status == 1) ? "Shop" : "User";
 $alertSanctionText = ($sanctionLevel == 1) ? "Suspended" : "Banned";
+
+if($banStatus === 'unban') {
+    $reason = "";
+    $dateTime = "";
+    $sanctionSuspensionData = "";
+    $sanctionLevel = 0;
+    $alertSanctionText = "Unbanned";
+}
 
 // UPDATE report details
 $sql = "UPDATE $tableNameReport SET reason = '$reason', updatedTime = '$dateTime' WHERE $tableIdNameReport = $idReport";

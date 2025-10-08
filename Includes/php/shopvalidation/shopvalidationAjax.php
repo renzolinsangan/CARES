@@ -1,5 +1,5 @@
 <?php
-$rootPath = $_SERVER['DOCUMENT_ROOT'] . "/";
+$rootPath = $_SERVER['DOCUMENT_ROOT'] . "/CARES/";
 set_include_path($rootPath);
 include("Modules/phpInclude.php");
 
