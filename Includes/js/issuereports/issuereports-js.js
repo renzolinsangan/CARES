@@ -30,18 +30,20 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
     swalTitle = status == 1 ? "Shop" : "User";
 
     console.log(reportAction);
+
+    console.log(reportAction);
     console.log(suspendedUntil);
 
     if(reportAction !== 0 && suspendedUntil !== "N/A") {
         showConfirmButtonStatus = true;
         
-        showConfirmButtonText = status == 1 ? "Unban " + swalTitle : "Unsuspend " + swalTitle;
+        showConfirmButtonText = reportAction == 2 ? "Unban " + swalTitle : "Unsuspend " + swalTitle;
         margin = "mb-3";
         reasonDetails = reason;
         disabledValue = "disabled";
-        banStatus = status == 1 ? "unban" : "unsuspend";
+        banStatus = reportAction == 2 ? "unban" : "unsuspend";
 
-        swalTitle = status == 1 ? "Shop Details" : "Details"; 
+        swalTitle = reportAction == 2 ? "Shop Details" : "Details"; 
         
         if(reportAction == 1) {
             suspendedSelectedValue = "selected";
@@ -55,8 +57,8 @@ function showReportsDetails(idReport, reportedBy, reportedId, reporterName, repo
             margin = "";
         }
     } else {
-        showConfirmButtonText = status == 1 ? "Ban " + swalTitle : "Suspend " + swalTitle;  
-        banStatus = status == 1 ? "ban" : "suspend";
+        showConfirmButtonText = reportAction == 2 ? "Ban " + swalTitle : "Suspend " + swalTitle;  
+        banStatus = reportAction == 2 ? "ban" : "suspend";
     }
 
     if (screenWidth >= 1600) {
