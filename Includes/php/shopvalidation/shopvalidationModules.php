@@ -49,7 +49,7 @@ if($queryShopDetails && $queryShopDetails->num_rows > 0)
             'businessDocu' => $resultShopDetails->business_docu,
             'validId' => $resultShopDetails->valid_id,
             'shopStatus' => $shopStatus,
-            'validationRemarks' => $resultShopDetails->validationRemarks,
+            'validationRemarks' => empty($resultShopDetails->validationRemarks) ? 'N/A' : $resultShopDetails->validationRemarks,
             'dateTimeValidated' => $resultShopDetails->dateTimeValidated
         ];
     }

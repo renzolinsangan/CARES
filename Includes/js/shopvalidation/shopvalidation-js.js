@@ -45,7 +45,7 @@ function ajax(shopId, accountId, shopStatus, remarks) {
     })
 }
 
-function showDocuments(shopId, shopName, businessDocu, validId, shopStatus, accountId) {
+function showDocuments(shopId, shopName, businessDocu, validId, shopStatus, accountId, validatedRemarks) {
     const screenWidth = window.innerWidth;
     let imageWidth;
     let swalWidth;
@@ -75,7 +75,7 @@ function showDocuments(shopId, shopName, businessDocu, validId, shopStatus, acco
     }
 
     Swal.fire({
-        title: shopName,
+        title: shopName + "<br>" + "<p class='text-body-secondary fs-5 mt-4'>"+validatedRemarks+"</p>",
         html: `
             <div style="display: flex; justify-content: center; gap: 20px; text-align: center; flex-wrap: wrap;">
                 <div>
