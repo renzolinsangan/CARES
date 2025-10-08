@@ -61,7 +61,12 @@ include("Includes/php/usermanagement/usermanagementModules.php");
                                             <td><?php echo $data['roleStatus']; ?></td>
                                             <td>
                                                 <button class="edit-btn btn btn-outline-info" title="Edit User"
-                                                    data-id="<?php echo $data['userId']; ?>">
+                                                    data-id="<?php echo $data['userId']; ?>"
+                                                    data-firstname="<?php echo $data['firstName']; ?>"
+                                                    data-surname="<?php echo $data['surName']; ?>"
+                                                    data-gender="<?php echo $data['gender']; ?>"
+                                                    data-email="<?php echo $data['email']; ?>"
+                                                    data-phonenumber="<?php echo $data['phoneNumber']; ?>">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </button>
                                             </td>
@@ -75,7 +80,8 @@ include("Includes/php/usermanagement/usermanagementModules.php");
             </div>
         </div>
     </div>
-    
+    <div id='modal-izi-editUser'><span class='izimodal-content-editUser'></span></div>
+
     <!-- JAVASCRIPT -->
     <?php include_once("Modules/footer.php"); ?>
     <script type="text/javascript" src="../../Includes/js/usermanagement/usermanagement-js.js"></script>
