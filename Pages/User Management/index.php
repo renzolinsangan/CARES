@@ -45,6 +45,7 @@ include("Includes/php/usermanagement/usermanagementModules.php");
                                         <th>Phone Number</th>
                                         <th>Vehicle Model - Plate Number</th>
                                         <th>Role</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,6 +59,12 @@ include("Includes/php/usermanagement/usermanagementModules.php");
                                             <td><?php echo $data['phoneNumber']; ?></td>
                                             <td><?php echo $data['vehicleInfo']; ?></td>
                                             <td><?php echo $data['roleStatus']; ?></td>
+                                            <td>
+                                                <button class="edit-btn btn btn-outline-info" title="Edit User"
+                                                    data-id="<?php echo $data['userId']; ?>">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                            </td>
                                         </tr>
                                     <?php endforeach;?>
                                 </tbody>

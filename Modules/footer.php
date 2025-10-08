@@ -1,4 +1,5 @@
 <script src="<?php echo $serverPath; ?>Templates/js/jquery.min.js" charset="UTF-8"></script>
+<script src="<?php echo $serverPath;?>Templates/js/iziModal.min.js" charset="UTF-8"></script>
 <script src="<?php echo $serverPath; ?>Templates/js/sweetalert.js" charset="UTF-8"></script>
 <script src="<?php echo $serverPath; ?>Templates/js/bootstrap.bundle.min.js" charset="UTF-8"></script>
 <script src="<?php echo $serverPath; ?>Templates/js/dataTables.min.js" charset="UTF-8"></script>
