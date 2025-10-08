@@ -30,12 +30,12 @@ $sanctionSuspensionData = ($sanctionLevel == 1) ? ", suspendedUntil = '$suspensi
 $alertSanctionTitle = ($status == 1) ? "Shop" : "User";
 $alertSanctionText = ($sanctionLevel == 1) ? "Suspended" : "Banned";
 
-if($banStatus === 'unban') {
+if($banStatus === 'unban' || $banStatus == 'unsuspend') {
     $reason = "";
     $dateTime = "";
     $sanctionSuspensionData = "";
     $sanctionLevel = 0;
-    $alertSanctionText = "Unbanned";
+    $alertSanctionText = $banStatus == "unban" ? "Unbanned" : "Unsuspend";
 }
 
 // UPDATE report details
