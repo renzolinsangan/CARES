@@ -8,7 +8,7 @@ $(document).ready(function() {
     });
 });
 
-function ajax(shopId, accountId, shopStatus) {
+function ajax(shopId, accountId, shopStatus, remarks) {
     $.ajax({
         url : '../../Includes/php/shopvalidation/shopvalidationAjax.php',
         type : 'POST',
@@ -17,6 +17,7 @@ function ajax(shopId, accountId, shopStatus) {
             shopId : shopId,
             accountId : accountId,
             shopStatus : shopStatus,
+            remarks : remarks,
         },
         success : function(data) {
             if(data.status === 'success') {
@@ -50,8 +51,6 @@ function showDocuments(shopId, shopName, businessDocu, validId, shopStatus, acco
     let swalWidth;
     var showConfirmButtonStatus = true;
     var showDenyButtonStatus = true;
-
-    console.log(shopStatus);
 
     if (screenWidth >= 1600) {
         // Desktop large
@@ -102,9 +101,59 @@ function showDocuments(shopId, shopName, businessDocu, validId, shopStatus, acco
         confirmButtonColor: "#28a745"
     }).then((result) => {
         if (result.isConfirmed) {
-            ajax(shopId, accountId, shopStatus=1);
+            Swal.fire({
+                title: "Enter Remarks",
+                input: "textarea",
+                inputPlaceholder: "Type your remarks here...",
+                inputAttributes: {
+                    'aria-label': 'Type your remarks here'
+                },
+                showCancelButton: true,
+                confirmButtonText: "Submit",
+                cancelButtonText: "Cancel",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                scrollbarPadding: false,
+                preConfirm: (remarks) => {
+                    if (!remarks) {
+                        Swal.showValidationMessage("Remarks cannot be empty!");
+                        return false;
+                    }
+                    return remarks;
+                }
+            }).then((inputResult) => {
+                if (inputResult.isConfirmed) {
+                    const remarks = inputResult.value;
+                    ajax(shopId, accountId, shopStatus=1, remarks);
+                }
+            }); 
         } else if (result.isDenied) {
-            ajax(shopId, accountId, shopStatus=2);
+            Swal.fire({
+                title: "Enter Remarks",
+                input: "textarea",
+                inputPlaceholder: "Type your remarks here...",
+                inputAttributes: {
+                    'aria-label': 'Type your remarks here'
+                },
+                showCancelButton: true,
+                confirmButtonText: "Submit",
+                cancelButtonText: "Cancel",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                scrollbarPadding: false,
+                preConfirm: (remarks) => {
+                    if (!remarks) {
+                        Swal.showValidationMessage("Remarks cannot be empty!");
+                        return false;
+                    }
+                    return remarks;
+                }
+            }).then((inputResult) => {
+                if (inputResult.isConfirmed) {
+                    const remarks = inputResult.value;
+                    ajax(shopId, accountId, shopStatus=2, remarks);
+                }
+            }); 
         }
     });
 }
