@@ -55,7 +55,7 @@ include("Includes/php/shopvalidation/shopvalidationModules.php");
                                             <td><?php echo $data['shopOwner']; ?></td>
                                             <td><?php echo $data['location']; ?></td>
                                             <td class="<?php echo $data['textClass']; ?> fw-bold"><?php echo $data['shopStatus']; ?></td>
-                                            <td><button class="btn btn-outline-info" title="View Documents" onclick="showDocuments('<?php echo $data['shopId']; ?>', '<?php echo $data['shopName']; ?>', '<?php echo $businessDocu; ?>', '<?php echo $validId; ?>', '<?php echo $data['shopStatus']; ?>',)"><i class="bi bi-files-alt"></i></button></td>
+                                            <td><button class="btn btn-outline-info" title="View Documents" onclick="showDocuments('<?php echo $data['shopId']; ?>', '<?php echo $data['shopName']; ?>', '<?php echo $businessDocu; ?>', '<?php echo $validId; ?>', '<?php echo $data['shopStatus']; ?>', '<?php echo $data['accountId']; ?>')"><i class="bi bi-files-alt"></i></button></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

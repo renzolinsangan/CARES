@@ -43,3 +43,8 @@ body.swal2-shown {
 .issuereports-table tbody tr td {
     text-align: center !important;
 }
+
+input:disabled, textarea:disabled, select:disabled {
+  background-color: #1A3D63 !important;
+  color: white !important;
+}

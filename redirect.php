@@ -1,7 +1,7 @@
 <?php
 include('Modules/phpInclude.php');
 
-$activePageStatus = $_GET['active'];
+echo $activePageStatus = $_GET['active'];
 
 switch($activePageStatus) {
     case "dashboard":
@@ -16,7 +16,11 @@ switch($activePageStatus) {
         $_SESSION['active'] = $activePageStatus;
         header("Location: Pages/Shop%20Validation/index.php?active=" . $activePageStatus);
         break;
-    case "issuereports": 
+    case "userreports": 
+        $_SESSION['active'] = $activePageStatus;
+        header("Location: Pages/Issue%20Reports/index.php?active=" . $activePageStatus);
+        break;
+    case "shopreports":
         $_SESSION['active'] = $activePageStatus;
         header("Location: Pages/Issue%20Reports/index.php?active=" . $activePageStatus);
         break;

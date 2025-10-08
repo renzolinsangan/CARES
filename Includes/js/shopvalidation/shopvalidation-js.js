@@ -8,21 +8,43 @@ $(document).ready(function() {
     });
 });
 
-function ajax(shopId, shopStatus) {
+function ajax(shopId, accountId, shopStatus) {
     $.ajax({
         url : '../../Includes/php/shopvalidation/shopvalidationAjax.php',
         type : 'POST',
+        dataType : 'json',
         data : {
             shopId : shopId,
+            accountId : accountId,
             shopStatus : shopStatus,
         },
         success : function(data) {
-            location.reload();
+            if(data.status === 'success') {
+                Swal.fire({
+                    title: data.value,
+                    text: "Successful, " + data.value + " is reflected.",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer : 1500,
+                    scrollbarPadding: false,
+                }).then((result) => {
+                    location.reload();
+                });
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: "There is an error in query, please try again!",
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    scrollbarPadding: false,
+                });
+            }
         }
     })
 }
 
-function showDocuments(shopId, shopName, businessDocu, validId, shopStatus) {
+function showDocuments(shopId, shopName, businessDocu, validId, shopStatus, accountId) {
     const screenWidth = window.innerWidth;
     let imageWidth;
     let swalWidth;
@@ -80,9 +102,9 @@ function showDocuments(shopId, shopName, businessDocu, validId, shopStatus) {
         confirmButtonColor: "#28a745"
     }).then((result) => {
         if (result.isConfirmed) {
-            ajax(shopId, shopStatus=1);
+            ajax(shopId, accountId, shopStatus=1);
         } else if (result.isDenied) {
-            ajax(shopId, shopStatus=2);
+            ajax(shopId, accountId, shopStatus=2);
         }
     });
 }

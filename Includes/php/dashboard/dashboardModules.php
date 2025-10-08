@@ -1,6 +1,7 @@
 <?php
 include('Includes/php/usermanagement/usermanagementModules.php'); // FOR TOTAL REGISTERED USERS
-include("Includes/php/shopvalidation/shopvalidationModules.php"); // FOR TOTAL SHOP VALIDATION
+include('Includes/php/shopvalidation/shopvalidationModules.php'); // FOR TOTAL SHOP VALIDATION
+include('Includes/php/issuereports/issuereportsModules.php'); // FOR TOTAL ISSUE REPORTS
 
 $fullName = $_SESSION['firstName'] . " " . $_SESSION['surName'];
 
@@ -26,7 +27,7 @@ $dashboardCards = [
     ],
     [
         'title' => 'Total Issue Reports',
-        'value' => '1000',
+        'value' => $totalIssueReports ?? 0,
         'img' => 'Includes/Images/report-issue.png',
         'class' => 'total-issue-reports-card'
     ]

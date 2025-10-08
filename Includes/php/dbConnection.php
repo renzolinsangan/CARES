@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "cares"; 
+$servername = "auth-db445.hstgr.io";
+$username = "u458240196_root";
+$password = "caresDB2025";
+$database = "u458240196_caresDB"; 
 
 // Create connection
 $db = new mysqli($servername, $username, $password, $database);

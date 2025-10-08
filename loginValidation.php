@@ -20,7 +20,6 @@ if(empty($userNameInput)) {
     if($queryCareAdmin && $queryCareAdmin->num_rows > 0) {
         $resultCareAdmin = $queryCareAdmin->fetch_object();
         $adminUserPassword = $resultCareAdmin->userPassword;
-
         if($userPasswordInput == $adminUserPassword) {
             $_SESSION['adminId'] = $resultCareAdmin->adminId;
             $_SESSION['userName'] = $resultCareAdmin->userName;
